@@ -55,14 +55,39 @@ namespace LINQ01
 
             #region Question05
 
-            var result5 = Source.ProductList
-                .Where(p => p.UnitsInStock > 0 &&
-                            p.Category == "Condiments");
+            //var result5 = Source.ProductList
+            //    .Where(p => p.UnitsInStock > 0 &&
+            //                p.Category == "Condiments");
 
-            foreach (var p in result5)
+            //foreach (var p in result5)
+            //{
+            //    Console.WriteLine(p.ProductName);
+            //}
+
+            #endregion
+
+            #region Question06
+
+            var result6 = Source.ProductList
+               .Select(p => new
+               {
+                   Name = p.ProductName,
+                   Price = p.UnitPrice,
+                   StockStatus = p.UnitsInStock > 0
+                       ? "Available"
+                       : "Out of Stock"
+               });
+
+            foreach (var p in result6)
             {
-                Console.WriteLine(p.ProductName);
+                Console.WriteLine(
+                    p.Name + " - " +
+                    p.Price + " - " +
+                    p.StockStatus
+                );
             }
+
+            Console.ReadKey();
 
             #endregion
         }
