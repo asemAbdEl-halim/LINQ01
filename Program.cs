@@ -68,26 +68,42 @@ namespace LINQ01
 
             #region Question06
 
-            var result6 = Source.ProductList
-               .Select(p => new
-               {
-                   Name = p.ProductName,
-                   Price = p.UnitPrice,
-                   StockStatus = p.UnitsInStock > 0
-                       ? "Available"
-                       : "Out of Stock"
-               });
+            //var result6 = Source.ProductList
+            //   .Select(p => new
+            //   {
+            //       Name = p.ProductName,
+            //       Price = p.UnitPrice,
+            //       StockStatus = p.UnitsInStock > 0
+            //           ? "Available"
+            //           : "Out of Stock"
+            //   });
 
-            foreach (var p in result6)
+            //foreach (var p in result6)
+            //{
+            //    Console.WriteLine(
+            //        p.Name + " - " +
+            //        p.Price + " - " +
+            //        p.StockStatus
+            //    );
+            //}
+
+            //Console.ReadKey();
+
+            #endregion
+
+            #region Question07
+
+            var result7 = Source.ProductList
+              .Select((p, index) => new
+              {
+                  Position = index + 1,
+                  Name = p.ProductName
+              });
+             
+            foreach (var p in result7)
             {
-                Console.WriteLine(
-                    p.Name + " - " +
-                    p.Price + " - " +
-                    p.StockStatus
-                );
+                Console.WriteLine(p.Position + ". " + p.Name);
             }
-
-            Console.ReadKey();
 
             #endregion
         }
