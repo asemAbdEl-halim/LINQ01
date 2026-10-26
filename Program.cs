@@ -183,20 +183,43 @@ namespace LINQ01
 
             #region Question12
 
-            string[] Arr = {
-                "aPPLE",
-                "AbAcUs",
-                "bRaNcH",
-                "BlUeBeRrY",
-                "ClOvEr",
-                "cHeRry"
-            };
-            
-            var result12 = Arr
-                .OrderBy(word => word.Length)
-                .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+            //string[] Arr = {
+            //    "aPPLE",
+            //    "AbAcUs",
+            //    "bRaNcH",
+            //    "BlUeBeRrY",
+            //    "ClOvEr",
+            //    "cHeRry"
+            //};
 
-            foreach (var word in result12)
+            //var result12 = Arr
+            //    .OrderBy(word => word.Length)
+            //    .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+
+            //foreach (var word in result12)
+            //{
+            //    Console.WriteLine(word);
+            //}
+
+            #endregion
+
+            #region Question13
+
+
+            string[] words = {
+                   "first",
+                   "nine",
+                   "five",
+                   "six",
+                   "ten",
+                   "eight"
+               };
+
+            var result13 = words
+                .Where(word => word.Length > 1 && word[1] == 'i')
+                .Reverse();
+
+            foreach (var word in result13)
             {
                 Console.WriteLine(word);
             }
