@@ -142,21 +142,40 @@ namespace LINQ01
 
             #region Question10
 
-            var result10 =
-                from c in Source.CustomerList
-                from o in c.Orders
-                where o.OrderDate.Year >= 1997
-                select new
+            //var result10 =
+            //    from c in Source.CustomerList
+            //    from o in c.Orders
+            //    where o.OrderDate.Year >= 1997
+            //    select new
+            //    {
+            //        CustomerID = c.CustomerID,
+            //        OrderDate = o.OrderDate
+            //    };
+
+            //foreach (var order in result10)
+            //{
+            //    Console.WriteLine(
+            //        order.CustomerID + " - " +
+            //        order.OrderDate
+            //    );
+            //}
+
+            #endregion
+
+            #region Question11
+
+            var result11 = Source.ProductList
+                .Select((p, index) => new
                 {
-                    CustomerID = c.CustomerID,
-                    OrderDate = o.OrderDate
-                };
+                    Position = index + 1,
+                    ProductName = p.ProductName
+                });
                
-            foreach (var order in result10)
+            foreach (var p in result11)
             {
                 Console.WriteLine(
-                    order.CustomerID + " - " +
-                    order.OrderDate
+                    p.Position + " - " +
+                    p.ProductName
                 );
             }
 
