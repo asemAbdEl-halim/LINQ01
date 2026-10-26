@@ -164,19 +164,41 @@ namespace LINQ01
 
             #region Question11
 
-            var result11 = Source.ProductList
-                .Select((p, index) => new
-                {
-                    Position = index + 1,
-                    ProductName = p.ProductName
-                });
-               
-            foreach (var p in result11)
+            //var result11 = Source.ProductList
+            //    .Select((p, index) => new
+            //    {
+            //        Position = index + 1,
+            //        ProductName = p.ProductName
+            //    });
+
+            //foreach (var p in result11)
+            //{
+            //    Console.WriteLine(
+            //        p.Position + " - " +
+            //        p.ProductName
+            //    );
+            //}
+
+            #endregion
+
+            #region Question12
+
+            string[] Arr = {
+                "aPPLE",
+                "AbAcUs",
+                "bRaNcH",
+                "BlUeBeRrY",
+                "ClOvEr",
+                "cHeRry"
+            };
+            
+            var result12 = Arr
+                .OrderBy(word => word.Length)
+                .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var word in result12)
             {
-                Console.WriteLine(
-                    p.Position + " - " +
-                    p.ProductName
-                );
+                Console.WriteLine(word);
             }
 
             #endregion
