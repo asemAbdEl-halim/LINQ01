@@ -43,12 +43,25 @@ namespace LINQ01
 
             #region Question04
 
-            var result4 = Source.ProductList
-                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            //var result4 = Source.ProductList
+            //    .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
 
-            foreach (var p in result4)
+            //foreach (var p in result4)
+            //{
+            //    Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
+            //}
+
+            #endregion
+
+            #region Question05
+
+            var result5 = Source.ProductList
+                .Where(p => p.UnitsInStock > 0 &&
+                            p.Category == "Condiments");
+
+            foreach (var p in result5)
             {
-                Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
+                Console.WriteLine(p.ProductName);
             }
 
             #endregion
