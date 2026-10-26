@@ -7,13 +7,25 @@ namespace LINQ01
         static void Main(string[] args)
         {
             #region Question01
-            var result1 = Source.ProductList
-                    .Where(p => p.Category == "Seafood");
+            //var result1 = Source.ProductList
+            //        .Where(p => p.Category == "Seafood");
 
-            foreach (var p in result1)
+            //foreach (var p in result1)
+            //{
+            //    Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
+            //}
+            #endregion
+
+            #region Question02
+
+            var result2 = Source.ProductList
+               .Select(p => p.ProductName);
+
+            foreach (var name in result2)
             {
-                Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
-            } 
+                Console.WriteLine(name);
+            }
+
             #endregion
         }
     }
