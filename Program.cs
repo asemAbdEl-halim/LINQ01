@@ -18,13 +18,26 @@ namespace LINQ01
 
             #region Question02
 
-            var result2 = Source.ProductList
-               .Select(p => p.ProductName);
+            //var result2 = Source.ProductList
+            //   .Select(p => p.ProductName);
 
-            foreach (var name in result2)
+            //foreach (var name in result2)
+            //{
+            //    Console.WriteLine(name);
+            //}
+
+            #endregion
+
+            #region Question03
+
+            var result3 = Source.ProductList
+                .OrderBy(p => p.UnitPrice);
+
+            foreach (var p in result3)
             {
-                Console.WriteLine(name);
+                Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
             }
+
 
             #endregion
         }
