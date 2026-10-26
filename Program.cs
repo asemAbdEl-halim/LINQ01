@@ -126,15 +126,37 @@ namespace LINQ01
 
             #region Question09
 
-            var result9 = Source.ProductList
-                .Where(p => p.Category == "Beverages")
-                .OrderByDescending(p => p.UnitsInStock);
+            //var result9 = Source.ProductList
+            //    .Where(p => p.Category == "Beverages")
+            //    .OrderByDescending(p => p.UnitsInStock);
+
+            //foreach (var p in result9)
+            //{
+            //    Console.WriteLine(
+            //        p.ProductName + " - Stock: " +
+            //        p.UnitsInStock
+            //    );
+            //}
+
+            #endregion
+
+            #region Question10
+
+            var result10 =
+                from c in Source.CustomerList
+                from o in c.Orders
+                where o.OrderDate.Year >= 1997
+                select new
+                {
+                    CustomerID = c.CustomerID,
+                    OrderDate = o.OrderDate
+                };
                
-            foreach (var p in result9)
+            foreach (var order in result10)
             {
                 Console.WriteLine(
-                    p.ProductName + " - Stock: " +
-                    p.UnitsInStock
+                    order.CustomerID + " - " +
+                    order.OrderDate
                 );
             }
 
