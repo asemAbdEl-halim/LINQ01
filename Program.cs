@@ -30,14 +30,26 @@ namespace LINQ01
 
             #region Question03
 
-            var result3 = Source.ProductList
-                .OrderBy(p => p.UnitPrice);
+            //var result3 = Source.ProductList
+            //    .OrderBy(p => p.UnitPrice);
 
-            foreach (var p in result3)
+            //foreach (var p in result3)
+            //{
+            //    Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
+            //}
+
+
+            #endregion
+
+            #region Question04
+
+            var result4 = Source.ProductList
+                .Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+
+            foreach (var p in result4)
             {
                 Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
             }
-
 
             #endregion
         }
