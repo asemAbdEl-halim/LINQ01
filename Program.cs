@@ -1,10 +1,20 @@
-﻿namespace LINQ01
+﻿using LINQ01.DataSources;
+
+namespace LINQ01
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            #region Question01
+            var result1 = Source.ProductList
+                    .Where(p => p.Category == "Seafood");
+
+            foreach (var p in result1)
+            {
+                Console.WriteLine(p.ProductName + " - " + p.UnitPrice);
+            } 
+            #endregion
         }
     }
 }
