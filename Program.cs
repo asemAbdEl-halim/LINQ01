@@ -93,16 +93,33 @@ namespace LINQ01
 
             #region Question07
 
-            var result7 = Source.ProductList
-              .Select((p, index) => new
-              {
-                  Position = index + 1,
-                  Name = p.ProductName
-              });
-             
-            foreach (var p in result7)
+            //var result7 = Source.ProductList
+            //  .Select((p, index) => new
+            //  {
+            //      Position = index + 1,
+            //      Name = p.ProductName
+            //  });
+
+            //foreach (var p in result7)
+            //{
+            //    Console.WriteLine(p.Position + ". " + p.Name);
+            //}
+
+            #endregion
+
+            #region Question08
+
+            var result8 = Source.ProductList
+                .OrderBy(p => p.Category)
+                .ThenByDescending(p => p.UnitPrice);
+              
+            foreach (var p in result8)
             {
-                Console.WriteLine(p.Position + ". " + p.Name);
+                Console.WriteLine(
+                    p.Category + " - " +
+                    p.ProductName + " - " +
+                    p.UnitPrice
+                );
             }
 
             #endregion
