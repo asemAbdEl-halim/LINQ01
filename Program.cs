@@ -109,16 +109,32 @@ namespace LINQ01
 
             #region Question08
 
-            var result8 = Source.ProductList
-                .OrderBy(p => p.Category)
-                .ThenByDescending(p => p.UnitPrice);
-              
-            foreach (var p in result8)
+            //var result8 = Source.ProductList
+            //    .OrderBy(p => p.Category)
+            //    .ThenByDescending(p => p.UnitPrice);
+
+            //foreach (var p in result8)
+            //{
+            //    Console.WriteLine(
+            //        p.Category + " - " +
+            //        p.ProductName + " - " +
+            //        p.UnitPrice
+            //    );
+            //}
+
+            #endregion
+
+            #region Question09
+
+            var result9 = Source.ProductList
+                .Where(p => p.Category == "Beverages")
+                .OrderByDescending(p => p.UnitsInStock);
+               
+            foreach (var p in result9)
             {
                 Console.WriteLine(
-                    p.Category + " - " +
-                    p.ProductName + " - " +
-                    p.UnitPrice
+                    p.ProductName + " - Stock: " +
+                    p.UnitsInStock
                 );
             }
 
